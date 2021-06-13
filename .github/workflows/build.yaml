@@ -1,0 +1,49 @@
+name: Build App
+
+on:
+  push:
+    branches:
+      - main
+
+    paths:
+      - 'src/**'
+      - '.github/workflows/build.yaml'
+  
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_REPO: ghcr.io/bartr/logapp
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ secrets.GH_ID }}
+        password: ${{ secrets.GH_PAT }}
+
+    - name: Docker Pull
+      run: |
+        # Pull the latest image if needed
+        docker pull mcr.microsoft.com/dotnet/core/sdk:3.1
+        docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
+
+    - name: Docker Build
+      run: |
+        docker build . -t image
+        
+    - name: Docker Tag and Push
+      run: |
+        VERSION=$(docker run --rm image --version)
+
+        # tag the repo
+        docker tag image $DOCKER_REPO:latest
+        docker tag image $DOCKER_REPO:beta
+
+        # Push the repo
+        docker push -a $DOCKER_REPO
