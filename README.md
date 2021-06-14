@@ -1,8 +1,10 @@
-# Rust Log
+# Log App
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-> Port LogApp to Rust
+> Simple app that prints json logs to stdout and stderr
+>
+> Used to test log processing (like Fluent Bit)
 
 ## Overview
 
@@ -10,52 +12,46 @@ The sample application generates JSON logs. Normal logs are written to stdout. E
 
 ```json
 
-{"date":"2020-12-28T21:19:06.1347849Z","statusCode":200,"path":"/log/app","duration":78,"value":"HWIkixicjA"}
-{"date":"2020-12-28T21:19:06.1444807Z","statusCode":500,"path":"/log/app","duration":266,"message":"Server error 9750"}
-{"date":"2020-12-28T21:19:06.1613873Z","statusCode":200,"path":"/log/app","duration":34,"value":"olJDPKglhr"}
-{"date":"2020-12-28T21:19:06.1660308Z","statusCode":200,"path":"/log/app","duration":86,"value":"lHldzimJSW"}
-{"date":"2020-12-28T21:19:06.1669528Z","statusCode":200,"path":"/log/app","duration":65,"value":"BkPCTxoWcp"}
-{"date":"2020-12-28T21:19:06.1846021Z","statusCode":400,"path":"/log/app","duration":9,"message":"Invalid paramater: cMwyFA"}
-{"date":"2020-12-28T21:19:06.1867848Z","statusCode":200,"path":"/log/app","duration":82,"value":"BAZeQzaLFc"}
-{"date":"2020-12-28T21:19:06.1944765Z","statusCode":200,"path":"/log/app","duration":22,"value":"NuUnKjZoNq"}
-{"date":"2020-12-28T21:19:06.2080865Z","statusCode":200,"path":"/log/app","duration":74,"value":"wKOBoeYgBc"}
-{"date":"2020-12-28T21:19:06.2116748Z","statusCode":200,"path":"/log/app","duration":79,"value":"UQWDWTPbHr"}
+{"date":"2020-12-28T21:19:06Z","statusCode":200,"path":"/log/app","duration":78,"value":"HWIkixic"}
+{"date":"2020-12-28T21:19:06Z","statusCode":400,"path":"/log/app","duration":9,"message":"Invalid Paramater"}
+{"date":"2020-12-28T21:19:06Z","statusCode":500,"path":"/log/app","duration":266,"message":"Server Error"}
 
 ```
 
-## Prerequisites
+### Prerequisites
 
 - Bash shell (tested on GitHub Codespaces, Mac, Ubuntu, WSL2)
-- Azure CLI ([download](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest))
-- Kubernetes cluster
-  - Setup an [AKS Cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
-  - Setup a [Development Cluster](https://github.com/retaildevcrews/akdc) on an Azure VM
-- kubectl with access to the Kubernetes cluster
-- Docker CLI (optional) ([download](https://docs.docker.com/install/))
+- Docker CLI ([download](https://docs.docker.com/install/))
 - Visual Studio Code (optional) ([download](https://code.visualstudio.com/download))
 
 > The easiest way to experiment is to click `Open with CodeSpaces` from the `Code` button dropdown
 
-## Clone this repo
+### Clone this repo
 
 ```bash
 
-git clone https://github.com/retaildevcrews/logapp
+git clone https://github.com/bartr/logapp
 cd logapp
 
 ```
 
-### Run the sample app
+### Build the Docker conatainer
 
 ```bash
 
-# optional step
+docker build . -t logapp
+
+```
+
+### Run the Docker container
+
+```bash
 
 # requires Docker CLI
-docker run -it --rm retaildevcrew/logapp:latest --iterations 10
+docker run -it --rm logapp --iterations 10
 
 # display help
-docker run -it --rm retaildevcrew/logapp:latest --help
+docker run -it --rm logapp --help
 
 ```
 
