@@ -1,8 +1,10 @@
-# Log App
+# Rust Log
 
-> Simple dotnet core app that writes json logs to stdout and stderr
->
-> Used by [Fluent Bit - Log Analytics](https://bartr.co/fbla)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+> Port LogApp to Rust
+
+## Overview
 
 The sample application generates JSON logs. Normal logs are written to stdout. Error logs are written to stderr.
 
@@ -24,7 +26,12 @@ The sample application generates JSON logs. Normal logs are written to stdout. E
 ## Prerequisites
 
 - Bash shell (tested on GitHub Codespaces, Mac, Ubuntu, WSL2)
-- Docker CLI ([download](https://docs.docker.com/install/))
+- Azure CLI ([download](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest))
+- Kubernetes cluster
+  - Setup an [AKS Cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
+  - Setup a [Development Cluster](https://github.com/retaildevcrews/akdc) on an Azure VM
+- kubectl with access to the Kubernetes cluster
+- Docker CLI (optional) ([download](https://docs.docker.com/install/))
 - Visual Studio Code (optional) ([download](https://code.visualstudio.com/download))
 
 > The easiest way to experiment is to click `Open with CodeSpaces` from the `Code` button dropdown
@@ -33,7 +40,7 @@ The sample application generates JSON logs. Normal logs are written to stdout. E
 
 ```bash
 
-git clone https://github.com/bartr/logapp
+git clone https://github.com/retaildevcrews/logapp
 cd logapp
 
 ```
@@ -42,7 +49,7 @@ cd logapp
 
 ```bash
 
-### TODO - change to makefile
+# optional step
 
 # requires Docker CLI
 docker run -it --rm retaildevcrew/logapp:latest --iterations 10
@@ -50,31 +57,21 @@ docker run -it --rm retaildevcrew/logapp:latest --iterations 10
 # display help
 docker run -it --rm retaildevcrew/logapp:latest --help
 
-# requires dotnet sdk
-cd src
-dotnet run -- --iterations 10
-
-# display help
-dotnet run -- --help
-
-cd ..
-
 ```
+
+## How to file issues and get help  
+
+This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new issue.
+
+For help and questions about using this project, please open a GitHub issue.
 
 ## Contributing
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com).
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Trademarks
 
