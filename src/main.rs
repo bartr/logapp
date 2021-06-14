@@ -29,6 +29,11 @@ fn main() {
         return;
     }
 
+    print_logs(config);
+}
+
+// print the log(s)
+fn print_logs(config: Config) {
     let mut index = 0;
     let sleep = time::Duration::from_millis(config.sleep);
 
