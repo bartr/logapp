@@ -1,5 +1,10 @@
 [package]
-name = "hello"
+name = "rustlog"
 version = "0.1.0"
+authors = ["bartr"]
+edition = "2018"
 
 [dependencies]
+clap = "3.0.0-beta.2"
+chrono = "0.4"
+rand = "0.8"
