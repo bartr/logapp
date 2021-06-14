@@ -4,6 +4,8 @@ use rand::{Rng, thread_rng};
 use rand::distributions::Alphanumeric;
 use chrono::Utc;
 use clap::{ crate_version, App };
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::Arc;
 
 // command line params
 struct Config {
@@ -30,8 +32,16 @@ fn main() {
     let mut index = 0;
     let sleep = time::Duration::from_millis(config.sleep);
 
+    // sig handler
+    let running = Arc::new(AtomicBool::new(true));
+    let r = running.clone();
+
+    ctrlc::set_handler(move || {
+        r.store(false, Ordering::SeqCst);
+    }).expect("Error setting Ctrl-C handler");
+    
     // write the log messages to stdout / stderr
-    loop {
+    while running.load(Ordering::SeqCst) {
         match index % 5 {
             // 500 goes to stderr
             1 => eprintln!("{}", get_log(index)),
