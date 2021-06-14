@@ -6,7 +6,7 @@ RUN rustup target add x86_64-unknown-linux-musl
 
 RUN USER=root cargo new rustlog
 WORKDIR /usr/src/rustlog
-COPY Cargo.toml Cargo.lock ./
+COPY Cargo.toml ./
 COPY src ./src
 RUN cargo build --release
 
