@@ -15,7 +15,7 @@
                 ]
             },
             "program": "${cargo:program}",
-            "args": [],
+            "args": [ "--iterations", "5" ],
             "cwd": "${workspaceFolder}"
         }
     ]
