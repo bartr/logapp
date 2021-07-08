@@ -8,12 +8,7 @@
 	],
 	"overrideCommand": false,
 	"settings": { },
-	"forwardPorts": [
-		30000,
-		30080,
-		30088,
-		32000
-	],
+	"forwardPorts": [],
 	// Install extensions
 	"extensions": [
 		"davidanson.vscode-markdownlint",
@@ -22,6 +17,7 @@
 		"mutantdino.resourcemonitor",
 		"rust-lang.rust",
 		"vadimcn.vscode-lldb",
+		"serayuzgur.crates",
 		"humao.rest-client"
 	],
 	// Run Bash script in .devcontainer directory

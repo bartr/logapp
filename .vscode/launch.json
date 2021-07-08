@@ -11,11 +11,11 @@
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=hello"
+                    "--bin=rustlog"
                 ]
             },
             "program": "${cargo:program}",
-            "args": [],
+            "args": [ "--iterations", "5" ],
             "cwd": "${workspaceFolder}"
         }
     ]

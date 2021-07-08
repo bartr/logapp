@@ -25,6 +25,7 @@ The sample application generates JSON logs. Normal logs are written to stdout. E
 - Visual Studio Code (optional) ([download](https://code.visualstudio.com/download))
 
 > The easiest way to experiment is to click `Open with CodeSpaces` from the `Code` button dropdown
+> Press F5 once Codespaces is initialized
 
 ### Clone this repo
 
@@ -32,6 +33,21 @@ The sample application generates JSON logs. Normal logs are written to stdout. E
 
 git clone https://github.com/bartr/logapp
 cd logapp
+
+```
+
+### Build and run locally
+
+```bash
+
+# build the app
+cargo build
+
+# run 5 iterations
+cargo run -- --iterations 5
+
+# display help
+cargo run -- --help
 
 ```
 
@@ -47,8 +63,8 @@ docker build . -t logapp
 
 ```bash
 
-# requires Docker CLI
-docker run -it --rm logapp --iterations 10
+# 5 iterations
+docker run -it --rm logapp --iterations 5
 
 # display help
 docker run -it --rm logapp --help
