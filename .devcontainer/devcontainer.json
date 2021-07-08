@@ -1,8 +1,7 @@
 {
 	"name": "rustlog",
 	"remoteUser": "akdc",
-	//"build": {"dockerfile": "Dockerfile"},
-	"image": "ghcr.io/retaildevcrews/kind:latest",
+	"image": "ghcr.io/retaildevcrews/kind-rust:latest",
 	"runArgs": [
 		"--init",
 		"--privileged"
