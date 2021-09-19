@@ -8,4 +8,7 @@ echo "post-start start" >> ~/status
 rustup self update
 rustup update
 
+# pull docker base images
+docker pull rust:latest
+
 echo "post-start complete" >> ~/status
