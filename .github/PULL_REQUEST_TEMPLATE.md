@@ -1,6 +1,6 @@
 # Purpose of PR
 
-- 
+-
 
 ## Type of PR
 
