@@ -18,7 +18,3 @@ assignees: ''
 ## Alternative Proposals
 
 -
-
-## Additional Context
-
--
