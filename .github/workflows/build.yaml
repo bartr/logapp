@@ -40,7 +40,6 @@ jobs:
       run: |
 
         # tag the repo
-        docker tag logapp $IMAGE:beta
         docker tag logapp $IMAGE:latest
 
         # Push to the repo
