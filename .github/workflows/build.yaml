@@ -1,10 +1,6 @@
 name: Build LogApp
 
 on:
-  schedule:
-    # Run Sunday at 6:00 AM UTC
-    - cron: "0 6 * * 0"
-
   push:
     branches:
       - main
@@ -13,7 +9,6 @@ on:
     - 'Dockerfile'
     - 'Cargo.toml'
     - 'src/**'
-    - '.github/workflows/build.yaml'
 
 jobs:
 
@@ -21,8 +16,7 @@ jobs:
 
     runs-on: ubuntu-20.04
     env:
-      BARTR: ghcr.io/bartr/logapp
-      CSE_LABS: ghcr.io/cse-labs/logapp
+      IMAGE: ghcr.io/bartr/logapp
 
     steps:
     - uses: actions/checkout@v2
@@ -46,15 +40,8 @@ jobs:
       run: |
 
         # tag the repo
-        docker tag logapp $BARTR:beta
-        docker tag logapp $BARTR:latest
-
-        # tag the repo
-        docker tag logapp $CSE_LABS:beta
-        docker tag logapp $CSE_LABS:latest
+        docker tag logapp $IMAGE:beta
+        docker tag logapp $IMAGE:latest
 
         # Push to the repo
-        docker push -a $BARTR
-
-        # Push to the repo
-        docker push -a $CSE_LABS
+        docker push -a $IMAGE
