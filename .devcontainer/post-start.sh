@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "post-start start" >> ~/status
+echo "post-start start" >> $HOME/status
 
-# this runs in background each time the container starts
+# this runs each time the container starts
 
 # update rustup
 rustup self update
@@ -11,4 +11,4 @@ rustup update
 # pull docker base images
 docker pull rust:latest
 
-echo "post-start complete" >> ~/status
+echo "post-start complete" >> $HOME/status
