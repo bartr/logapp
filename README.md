@@ -71,17 +71,15 @@ docker run -it --rm logapp --help
 
 ```
 
-## How to file issues and get help  
+## Support
 
-This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new issue.
-
-For help and questions about using this project, please open a GitHub issue.
+This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates.  For new issues, file your bug or feature request as a new issue.
 
 ## Contributing
 
 This project welcomes contributions and suggestions and has adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html).
 
-For more information see the [Code of Conduct FAQ](https://www.contributor-covenant.org/faq).
+For more information see [Contributing.md](./.github/CONTRIBUTING.md)
 
 ## Trademarks
 
